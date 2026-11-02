@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>Carnelian Mutual Fund — Reception Display</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="screen">
+    <!-- Header -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">Carnelian</span>
+        <span class="brand-sub">Mutual Fund</span>
+      </div>
+      <div class="topbar-title" id="slideTitle">Net Asset Value</div>
+      <div class="topbar-right">
+        <div class="navdate">NAV as on <strong id="navDate">—</strong></div>
+        <div class="clock" id="clock">--:--</div>
+      </div>
+    </header>
+
+    <!-- Carousel stage -->
+    <main class="stage" id="stage">
+      <div class="loading" id="loading">Loading Carnelian data…</div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bottombar">
+      <div class="disclaimer">
+        Mutual fund investments are subject to market risks. Read all scheme-related documents
+        carefully. NAV shown for information only.
+      </div>
+      <div class="dots" id="dots"></div>
+      <div class="source">
+        <span class="live-dot" id="liveDot"></span>
+        <span id="sourceText">carnelianmf.com</span>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

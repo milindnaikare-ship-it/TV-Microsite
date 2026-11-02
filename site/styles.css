@@ -1,0 +1,231 @@
+/* Carnelian Mutual Fund — reception TV display
+   Target: LG webOS TV browser, 1920x1080 landscape, viewed at a distance.
+   Palette sampled from carnelianmf.com. */
+:root {
+  --green-900: #12302b;
+  --green-800: #17332e;
+  --green-700: #1e3f39;
+  --green-600: #2a544c;
+  --green-500: #599288;
+  --cream: #fff8f1;
+  --cream-dim: #f6e6d3;
+  --gold: #f9b45e;
+  --gold-strong: #f69322;
+  --amber-700: #a9600f;
+  --up: #58d39b;
+  --line: rgba(255, 248, 241, 0.14);
+
+  --pad: 48px;
+  --radius: 20px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  background: var(--green-900);
+  color: var(--cream);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.screen {
+  width: 1920px;
+  height: 1080px;
+  display: grid;
+  grid-template-rows: 112px 1fr 84px;
+  background:
+    radial-gradient(1200px 700px at 85% -10%, rgba(246, 147, 34, 0.12), transparent 60%),
+    radial-gradient(1000px 600px at 0% 110%, rgba(89, 146, 136, 0.16), transparent 60%),
+    var(--green-900);
+}
+
+/* ---------- Header ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pad);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; align-items: baseline; gap: 14px; }
+.brand-mark {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--cream);
+}
+.brand-mark::first-letter { color: var(--gold-strong); }
+.brand-sub {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.topbar-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--cream-dim);
+  letter-spacing: 0.4px;
+  text-align: center;
+  flex: 1;
+}
+.topbar-right { text-align: right; }
+.navdate { font-size: 20px; color: var(--cream-dim); }
+.navdate strong { color: var(--gold); font-weight: 600; }
+.clock { font-size: 30px; font-weight: 600; letter-spacing: 1px; color: var(--cream); }
+
+/* ---------- Stage / carousel ---------- */
+.stage { position: relative; overflow: hidden; }
+.loading {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px; color: var(--cream-dim);
+}
+
+.slide {
+  position: absolute; inset: 0;
+  padding: 40px var(--pad);
+  opacity: 0;
+  transform: scale(1.012);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  pointer-events: none;
+}
+.slide.active { opacity: 1; transform: scale(1); }
+
+/* Banner slide */
+.slide.banner { padding: 28px var(--pad); }
+.banner-frame {
+  position: relative;
+  width: 100%; height: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--green-800);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+.banner-frame img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.banner-frame.noimg img { display: none; }
+
+/* Legibility scrim behind the overlaid text */
+.banner-frame.theme-dark::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(18, 48, 43, 0.92) 0%, rgba(18, 48, 43, 0.72) 34%, rgba(18, 48, 43, 0) 62%);
+}
+.banner-frame.theme-light::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(255, 248, 241, 0.94) 0%, rgba(255, 248, 241, 0.75) 36%, rgba(255, 248, 241, 0) 64%);
+}
+
+.banner-overlay {
+  position: absolute;
+  left: 72px; top: 50%; transform: translateY(-50%);
+  max-width: 54%;
+  z-index: 2;
+}
+.banner-kicker {
+  display: inline-block;
+  font-size: 22px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold-strong);
+  padding-bottom: 18px;
+}
+.banner-title {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 66px; font-weight: 700; line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+.banner-subtitle {
+  font-size: 30px; line-height: 1.4; font-weight: 400;
+  color: var(--cream-dim);
+}
+.theme-light .banner-title { color: var(--green-800); }
+.theme-light .banner-subtitle { color: var(--green-700); }
+.theme-light .banner-kicker { color: var(--amber-700); }
+
+/* NAV slide */
+.nav-slide { display: flex; flex-direction: column; height: 100%; }
+.nav-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.nav-fund {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 44px; font-weight: 700; color: var(--cream);
+}
+.nav-fund .accent { color: var(--gold-strong); }
+.nav-asof { font-size: 22px; color: var(--cream-dim); }
+
+.nav-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.nav-table thead th {
+  text-align: left;
+  font-size: 20px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold);
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--line);
+}
+.nav-table th.num, .nav-table td.num { text-align: right; }
+.nav-table tbody td {
+  padding: 20px 20px;
+  font-size: 34px;
+  border-bottom: 1px solid var(--line);
+  color: var(--cream);
+}
+.nav-table tbody tr:nth-child(even) { background: rgba(255, 248, 241, 0.035); }
+.nav-table .plan { font-weight: 600; }
+.nav-table .option { color: var(--cream-dim); font-weight: 400; }
+.nav-table .navval {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--cream);
+  white-space: nowrap;
+}
+.nav-table .navval .rupee { color: var(--gold); margin-right: 6px; font-weight: 600; }
+
+.nav-empty {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  font-size: 30px; color: var(--cream-dim);
+}
+
+/* ---------- Footer ---------- */
+.bottombar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+  padding: 0 var(--pad);
+  border-top: 1px solid var(--line);
+}
+.disclaimer { font-size: 17px; color: var(--cream-dim); max-width: 46%; line-height: 1.3; }
+.dots { display: flex; gap: 10px; flex: 1; justify-content: center; }
+.dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255, 248, 241, 0.22);
+  transition: background 0.3s, transform 0.3s;
+}
+.dot.active { background: var(--gold-strong); transform: scale(1.25); }
+.source {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 18px; color: var(--cream-dim);
+  min-width: 190px; justify-content: flex-end;
+}
+.live-dot {
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--up);
+  box-shadow: 0 0 0 0 rgba(88, 211, 155, 0.6);
+  animation: pulse 2.4s infinite;
+}
+.live-dot.stale { background: var(--gold-strong); animation: none; }
+.live-dot.offline { background: #d9534f; animation: none; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(88, 211, 155, 0.6); }
+  70% { box-shadow: 0 0 0 12px rgba(88, 211, 155, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(88, 211, 155, 0); }
+}
