@@ -59,13 +59,13 @@ html, body {
 .topbar-right { text-align: right; line-height: 1.08; }
 .dt-date {
   display: block;
-  font-size: 21px; font-weight: 600; letter-spacing: 0.3px;
-  color: var(--green-600);
+  font-size: 38px; font-weight: 700; letter-spacing: 0.3px;
+  color: var(--green-800);
 }
 .dt-time {
   display: block;
-  font-size: 38px; font-weight: 700; letter-spacing: 1px;
-  color: var(--green-800);
+  font-size: 21px; font-weight: 600; letter-spacing: 1px;
+  color: var(--green-600);
   font-variant-numeric: tabular-nums;
 }
 
