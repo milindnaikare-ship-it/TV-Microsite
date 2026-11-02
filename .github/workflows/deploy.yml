@@ -48,6 +48,11 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          # Enable the Pages site automatically via the API so the deploy does
+          # not depend on the manual Settings → Pages toggle. Requires the
+          # pages:write permission granted above.
+          enablement: true
 
       - name: Upload site as Pages artifact
         uses: actions/upload-pages-artifact@v3
