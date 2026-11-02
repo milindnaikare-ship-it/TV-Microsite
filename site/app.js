@@ -20,8 +20,6 @@
 
   var stage = document.getElementById("stage");
   var dotsEl = document.getElementById("dots");
-  var slideTitleEl = document.getElementById("slideTitle");
-  var navDateEl = document.getElementById("navDate");
   var liveDot = document.getElementById("liveDot");
   var sourceText = document.getElementById("sourceText");
 
@@ -199,7 +197,6 @@
     for (var d = 0; d < dotNodes.length; d++) {
       dotNodes[d].classList.toggle("active", d === current);
     }
-    slideTitleEl.textContent = slides[current].title || "";
 
     if (timer) clearTimeout(timer);
     timer = setTimeout(next, slides[current].ms || CONFIG.navMs);
@@ -211,7 +208,6 @@
 
   // ---------- data loading ----------
   function markFreshness(data) {
-    navDateEl.textContent = data.nav_date || "—";
     sourceText.textContent = "carnelianmf.com";
     liveDot.className = "live-dot";
     if (data.updated_at) {
