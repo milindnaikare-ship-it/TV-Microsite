@@ -50,35 +50,10 @@ html, body {
   padding: 0 var(--pad);
   border-bottom: 1px solid var(--line);
 }
-.brand { display: flex; align-items: baseline; gap: 14px; }
-.brand-mark {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 46px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: var(--cream);
-}
-.brand-mark::first-letter { color: var(--gold-strong); }
-.brand-sub {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.topbar-title {
-  font-family: "Fraunces", Georgia, serif;
-  font-size: 30px;
-  font-weight: 600;
-  color: var(--cream-dim);
-  letter-spacing: 0.4px;
-  text-align: center;
-  flex: 1;
-}
+.brand { display: flex; align-items: center; }
+.brand-logo { height: 64px; width: auto; display: block; }
 .topbar-right { text-align: right; }
-.navdate { font-size: 20px; color: var(--cream-dim); }
-.navdate strong { color: var(--gold); font-weight: 600; }
-.clock { font-size: 30px; font-weight: 600; letter-spacing: 1px; color: var(--cream); }
+.clock { font-size: 34px; font-weight: 600; letter-spacing: 1px; color: var(--cream); }
 
 /* ---------- Stage / carousel ---------- */
 .stage { position: relative; overflow: hidden; }
