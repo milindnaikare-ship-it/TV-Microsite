@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T13:03:50+00:00",
+  "updated_at": "2026-11-02T14:21:58+00:00",
   "source": "https://carnelianmf.com/nav-idcw",
   "nav_date": "1 Nov 2026",
   "funds": [
@@ -45,13 +45,6 @@
     }
   ],
   "banners": [
-    {
-      "img": "assets/banners/small-cap-slide-desktop.jpg",
-      "theme": "dark",
-      "kicker": "New Fund Offer",
-      "title": "Carnelian Small Cap Fund",
-      "subtitle": "An open-ended equity scheme predominantly investing in small cap stocks."
-    },
     {
       "img": "assets/banners/hero-bg.jpeg",
       "theme": "dark",
