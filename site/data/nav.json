@@ -1,0 +1,70 @@
+{
+  "updated_at": "2026-11-02T13:03:50+00:00",
+  "source": "https://carnelianmf.com/nav-idcw",
+  "nav_date": "1 Nov 2026",
+  "funds": [
+    {
+      "name": "Carnelian Liquid Fund - Direct Plan - Growth",
+      "fund": "Carnelian Liquid Fund",
+      "plan": "Direct Plan",
+      "option": "Growth",
+      "nav_date": "1 Nov 2026",
+      "nav": "1,003.0242"
+    },
+    {
+      "name": "Carnelian Liquid Fund - Direct Plan - Daily IDCW Reinvest",
+      "fund": "Carnelian Liquid Fund",
+      "plan": "Direct Plan",
+      "option": "Daily IDCW Reinvest",
+      "nav_date": "1 Nov 2026",
+      "nav": "1,000.0000"
+    },
+    {
+      "name": "Carnelian Liquid Fund - Direct Plan - Weekly IDCW Reinvest",
+      "fund": "Carnelian Liquid Fund",
+      "plan": "Direct Plan",
+      "option": "Weekly IDCW Reinvest",
+      "nav_date": "1 Nov 2026",
+      "nav": "1,000.5816"
+    },
+    {
+      "name": "Carnelian Liquid Fund - Regular Plan - Growth",
+      "fund": "Carnelian Liquid Fund",
+      "plan": "Regular Plan",
+      "option": "Growth",
+      "nav_date": "1 Nov 2026",
+      "nav": "1,002.9565"
+    },
+    {
+      "name": "Carnelian Liquid Fund - Regular Plan - Daily IDCW Reinvest",
+      "fund": "Carnelian Liquid Fund",
+      "plan": "Regular Plan",
+      "option": "Daily IDCW Reinvest",
+      "nav_date": "1 Nov 2026",
+      "nav": "1,000.0000"
+    }
+  ],
+  "banners": [
+    {
+      "img": "assets/banners/small-cap-slide-desktop.jpg",
+      "theme": "dark",
+      "kicker": "New Fund Offer",
+      "title": "Carnelian Small Cap Fund",
+      "subtitle": "An open-ended equity scheme predominantly investing in small cap stocks."
+    },
+    {
+      "img": "assets/banners/hero-bg.jpeg",
+      "theme": "dark",
+      "kicker": "Carnelian Mutual Fund",
+      "title": "Your aspirations deserve a thoughtful partner.",
+      "subtitle": "Whatever stage of life you're at — beginning, building or arriving — we walk with you."
+    },
+    {
+      "img": "assets/banners/liquid-fund-notice.png",
+      "theme": "light",
+      "kicker": "Our Philosophy",
+      "title": "QGARP — Quality Growth, at a Reasonable Price",
+      "subtitle": "Quality businesses that can keep growing, bought at a price that makes sense."
+    }
+  ]
+}

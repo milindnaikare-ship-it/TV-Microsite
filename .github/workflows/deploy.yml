@@ -1,0 +1,59 @@
+name: Scrape NAV & Deploy TV Microsite
+
+# Runs the scraper once a day, then publishes the site/ folder to GitHub Pages.
+# You can also trigger it by hand from the Actions tab (Run workflow).
+on:
+  schedule:
+    # 04:17 UTC daily  ==  09:47 AM IST. NAV is published once a day, so a single
+    # morning run keeps the reception TV current. Adjust if you prefer.
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "site/**"
+      - "scraper/**"
+      - ".github/workflows/deploy.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Let a running deploy finish; only keep the newest queued run.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scraper dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Scrape latest NAV + banners from carnelianmf.com
+        run: python scraper/scrape.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site as Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
