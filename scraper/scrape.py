@@ -48,13 +48,6 @@ TIMEOUT = 30
 # Edit this list to change what the reception TV promotes.
 BANNER_SOURCES = [
     {
-        "src": "/_files/media/01a0c7ec-70f3-7059-a143-544f8e604e61/small-cap-slide-desktop.jpg",
-        "theme": "dark",
-        "kicker": "New Fund Offer",
-        "title": "Carnelian Small Cap Fund",
-        "subtitle": "An open-ended equity scheme predominantly investing in small cap stocks.",
-    },
-    {
         "src": "/_files/media/01a0c7ec-70f3-7059-a143-544f8e604e61/hero-bg.jpeg",
         "theme": "dark",
         "kicker": "Carnelian Mutual Fund",
