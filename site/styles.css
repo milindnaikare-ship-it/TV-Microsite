@@ -35,7 +35,7 @@ html, body {
   width: 1920px;
   height: 1080px;
   display: grid;
-  grid-template-rows: 112px 1fr 84px;
+  grid-template-rows: 128px 1fr 84px;
   background:
     radial-gradient(1200px 700px at 85% -10%, rgba(246, 147, 34, 0.12), transparent 60%),
     radial-gradient(1000px 600px at 0% 110%, rgba(89, 146, 136, 0.16), transparent 60%),
@@ -43,17 +43,31 @@ html, body {
 }
 
 /* ---------- Header ---------- */
+/* Floating cream pill, styled like the carnelianmf.com header overlay */
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 var(--pad);
-  border-bottom: 1px solid var(--line);
+  margin: 22px 30px 6px;
+  padding: 12px 40px;
+  background: var(--cream);
+  border-radius: 30px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.30);
 }
 .brand { display: flex; align-items: center; }
-.brand-logo { height: 64px; width: auto; display: block; }
-.topbar-right { text-align: right; }
-.clock { font-size: 34px; font-weight: 600; letter-spacing: 1px; color: var(--cream); }
+.brand-logo { height: 60px; width: auto; display: block; }
+.topbar-right { text-align: right; line-height: 1.08; }
+.dt-date {
+  display: block;
+  font-size: 21px; font-weight: 600; letter-spacing: 0.3px;
+  color: var(--green-600);
+}
+.dt-time {
+  display: block;
+  font-size: 38px; font-weight: 700; letter-spacing: 1px;
+  color: var(--green-800);
+  font-variant-numeric: tabular-nums;
+}
 
 /* ---------- Stage / carousel ---------- */
 .stage { position: relative; overflow: hidden; }
