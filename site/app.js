@@ -260,7 +260,16 @@
       });
   }
 
+  // ---------- fit the 1920x1080 design to the actual screen ----------
+  function fitScreen() {
+    var scale = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    document.documentElement.style.setProperty("--scale", scale);
+  }
+
   // ---------- boot ----------
+  fitScreen();
+  window.addEventListener("resize", fitScreen);
+  window.addEventListener("orientationchange", fitScreen);
   updateClock();
   setInterval(updateClock, 15000);
   loadData(true);

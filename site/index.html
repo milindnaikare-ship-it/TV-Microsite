@@ -2,8 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carnelian Mutual Fund — Reception Display</title>
+  <script>
+    // Scale the fixed 1920x1080 design to the actual screen before first paint,
+    // so it never appears oversized on 32"/43"/4K TVs. app.js re-applies on resize.
+    (function () {
+      function fit() {
+        document.documentElement.style.setProperty(
+          "--scale",
+          Math.min(window.innerWidth / 1920, window.innerHeight / 1080)
+        );
+      }
+      fit();
+      window.addEventListener("resize", fit);
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
