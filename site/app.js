@@ -47,12 +47,21 @@
     return '<span class="rupee">₹</span>' + value;
   }
 
+  var DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   function updateClock() {
     var d = new Date();
     var h = d.getHours();
     var m = d.getMinutes();
-    var el = document.getElementById("clock");
-    if (el) el.textContent = (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m;
+    var dateEl = document.getElementById("dtDate");
+    var timeEl = document.getElementById("dtTime");
+    if (dateEl) {
+      dateEl.textContent =
+        DAYS[d.getDay()] + ", " + d.getDate() + " " + MONTHS[d.getMonth()] + " " + d.getFullYear();
+    }
+    if (timeEl) {
+      timeEl.textContent = (h < 10 ? "0" : "") + h + ":" + (m < 10 ? "0" : "") + m;
+    }
   }
 
   // ---------- slide builders ----------
