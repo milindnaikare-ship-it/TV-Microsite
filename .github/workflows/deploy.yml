@@ -4,11 +4,11 @@ name: Scrape NAV & Deploy TV Microsite
 # You can also trigger it by hand from the Actions tab (Run workflow).
 on:
   schedule:
-    # 22:30 UTC daily == 04:00 AM IST (next day). Early-morning run before the
-    # business day so the reception TV shows the latest published NAV.
-    # (GitHub Actions cron is always UTC and may start a few minutes late
-    # under load.)
-    - cron: "30 22 * * *"
+    # Twice a day so a transient failure in one run is recovered by the other,
+    # and the TV never sits on a full day of stale NAV.
+    # (GitHub Actions cron is always UTC and may start a while late under load.)
+    - cron: "30 22 * * *"   # 22:30 UTC == 04:00 AM IST (morning)
+    - cron: "30 15 * * *"   # 15:30 UTC == 09:00 PM IST (evening)
   workflow_dispatch:
   push:
     branches: [main]
