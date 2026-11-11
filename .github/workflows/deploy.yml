@@ -8,7 +8,7 @@ on:
     # and the TV never sits on a full day of stale NAV.
     # (GitHub Actions cron is always UTC and may start a while late under load.)
     - cron: "30 22 * * *"   # 22:30 UTC == 04:00 AM IST (morning)
-    - cron: "30 15 * * *"   # 15:30 UTC == 09:00 PM IST (evening)
+    - cron: "30 17 * * *"   # 17:30 UTC == 11:00 PM IST (evening)
   workflow_dispatch:
   push:
     branches: [main]
